@@ -6,14 +6,8 @@
       google.charts.setOnLoadCallback(drawStuff);
 
       function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Move', 'Percentage'],
-          ["King's pawn (e4)", 44],
-          ["Queen's pawn (d4)", 31],
-          ["Knight to King 3 (Nf3)", 12],
-          ["Queen's bishop pawn (c4)", 10],
-          ['Other', 3]
-        ]);
+        var data = new google.visualization.arrayToDataTable
+      };
 
         var options = {
           width: 800,
@@ -33,6 +27,13 @@
         // Convert the Classic options to Material options.
         chart.draw(data, google.charts.Bar.convertOptions(options));
       };
+        }
+  // Récupération de données depuis notre API /tawarano/
+  fetch('/tawarano/')
+    .then(response => response.json())
+    .then(data => {
+      drawChart(data);
+    })
     </script>
   </head>
   <body>
