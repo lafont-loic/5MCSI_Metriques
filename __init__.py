@@ -35,13 +35,6 @@ def mongraphique():
 def monhistogramme():
     return render_template("histogramme.html")
 
-@app.route("/commits/")
-def extract_minutes(date_string):
-    response = urlopen('https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits')
-        date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
-        minutes = date_object.minute
-        return jsonify({'minutes': minutes})
-
   
 if __name__ == "__main__":
   app.run(debug=True)
